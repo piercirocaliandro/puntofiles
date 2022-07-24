@@ -1,0 +1,8 @@
+configuration{
+    modi:       "window, drun, combi";
+    font:       "mono 10";
+    combi-modi: "window, drun";
+    matching:   "fuzzy";
+}
+
+@theme "solarized"
