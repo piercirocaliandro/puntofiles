@@ -10,12 +10,12 @@ $username\
 $directory\
 $git_branch\
 $git_status\
-$nodejs\
-$rust\
+$c\
 $cmake\
-$python\
 $java\
-[ ](fg:#6fa8dc)\
+$python\
+$rust\
+$status\
 """
 
 # Disable the blank line at the start of the prompt
@@ -25,15 +25,15 @@ $java\
 # You can also replace your username with a neat symbol like  to save some space
 [username]
 show_always = true
-style_user = "bg:#3ba55d"
-style_root = "bg:#3ba55d"
-format = '[$user ]($style)'
+style_user = "fg:#228b22"
+style_root = "fg:#c70039"
+format = ' [$user]($style)'
 
 [directory]
-style = "bg:#84a590"
-format = "[ $path ]($style)"
+# style = "bg:#84a590 fg:#28282B"
+format = " $path "
 truncation_length = 3
-truncation_symbol = "…/"
+truncation_symbol = "../"
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
@@ -55,31 +55,52 @@ truncation_symbol = "…/"
 #format = '[[ $time ](bg:#3a63f4)]($style)'
 
 
-[character]
-success_symbol = "[>](bold green)"
-error_symbol = "[x](bold red)"
-vicmd_symbol = "[<](bold green)"
+[status]
+success_symbol = " [  ](#228b22)"
+symbol = " [ ❌ ](bold red)"
+sigint_symbol = "[ ❌](bold yellow)"
+not_found_symbol = "[  ](bold white)"
+not_executable_symbol = "[  ](bold red)"
+format = "$symbol"
+map_symbol = true
+disabled = false
+# vicmd_symbol = " [<](bold green)"
 
 [git_branch]
 symbol = " "
-style = "bg:#052e53"
-format = '[[ $symbol $branch ](bg:#052e53)]($style)'
+style = "fg:#f14e32"
+format = ' [$symbol $branch]($style) '
 
 [git_status]
-style = "bg:#052e53"
-format = '[[($all_status$ahead_behind )](bg:#052e53)]($style)'
+style = "fg:#f14e32"
+format = '[($all_status$ahead_behind)]($style)'
 
 [python]
-symbol = " "
-style = "bg:#0b5394"
-format = '[[ $symbol ($version) ](bg:#0b5394)]($style)'
+symbol = ""
+style = "fg:#fdda0d"
+# style = "bg:#0b5394 fg:#28282B"
+format = ' via [$symbol ($version)]($style)'
 
 [cmake]
-symbol = " " 
-style = "bg:#0b5394"
-format = '[[ $symbol ($version) ](bg:#0b5394)]($style)'
+symbol = "󰙲 " 
+style = "fg:#89cff0"
+# style = "bg:#0b5394 fg:#28282B"
+format = ' via [$symbol ($version)]($style)'
+
+[c]
+symbol = ' '
+style = "fg:#89cff0"
+format = ' via [$symbol($version(-$name))]($style)'
 
 [java]
 symbol = " "
-style = "bg:#0b5394"
-format = '[[ $symbol ($version) ](bg:#0b5394)]($style)'
+style = "fg:#ff0000"
+# style = "bg:#0b5394 fg:#28282B"
+format = ' via [$symbol ($version)]($style)'
+
+[rust]
+symbol = " "
+style = "bold red"
+# style = "bg:#FFFFFF,fg:#281C1C"
+# style = "bg:#0b5394 fg:#28282B"
+format = ' via [$symbol ($version)]($style)'
