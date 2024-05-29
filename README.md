@@ -16,6 +16,8 @@ inkscape
 onlyoffice
 rofi
 feh
+light
+lightdm
 
 ## How to manage
 
